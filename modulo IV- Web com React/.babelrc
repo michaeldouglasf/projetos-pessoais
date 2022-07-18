@@ -1,0 +1,7 @@
+{
+    "presetes": [ 
+        "@babel/preset-env",
+        "@babel/preset-ract"
+    
+    ]
+}
