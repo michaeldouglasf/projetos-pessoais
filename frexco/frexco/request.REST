@@ -1,0 +1,39 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "nome": "Murilo",
+    "email": "muh@labenu.com.br",
+    "senha": "123456"
+}
+
+###
+# @name login
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "muh@labenu.com.br",
+    "senha": "123456"
+}
+
+
+###
+@token = {{login.response.body.token}}
+POST http://localhost:3003/post
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "foto": "",
+    "descricao": "Teste 2",
+    "data_criacao": "",
+    "tipo": ""
+}
+
+
+###
+
+GET http://localhost:3003/post/4f3b190c-8d87-457e-9380-26babd17cce0
+Content-Type: application/json
+Authorization: {{token}}
