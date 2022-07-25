@@ -4,6 +4,8 @@ import { DivPassword,ButtonStyled, Form, Main, InputMaterial } from "./style";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { BASE_URL } from '../../constants/url';
+import { useNavigate } from 'react-router-dom';
+import { goToFeed } from '../../routes/coordinator';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +15,8 @@ const Login = () => {
   const [errPass,setErrPass] = useState('')
   const [checkErrEmail,setCheckErrEmail] = useState(false)
   const [checkErrPass,setCheckErrPass] = useState(false)
+  
+  const navigate = useNavigate()
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -38,6 +42,9 @@ const Login = () => {
         setErrPass('')
         setCheckErrPass(false)
         setCheckErrEmail(false)
+        localStorage.setItem("token",res.data)
+        goToFeed(navigate)
+        alert(`Seja bem vindo ${res.data.user.name}`)
     })
     .catch((error)=>{
         if(error.response.data.message.includes('Senha incorreta')){
