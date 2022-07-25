@@ -1,5 +1,5 @@
-import { useState } from "react";
 
+import { useState } from 'react';
 
 export const useForm = (initialState) => {
     const [form, setForm] = useState(initialState)
@@ -13,5 +13,5 @@ export const useForm = (initialState) => {
         setForm(initialState)
     } 
 
-    return [form, onChange, clean]
+    return {form, onChange, clean}
 }
