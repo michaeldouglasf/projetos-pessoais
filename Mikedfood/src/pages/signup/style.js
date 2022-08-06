@@ -8,6 +8,14 @@ export  const Main = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
+    form{
+        margin-top:  50px;
+        display: flex;
+        width: 90%;
+        height: 50%;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
     p{
         font-size: 1rem;
     }
